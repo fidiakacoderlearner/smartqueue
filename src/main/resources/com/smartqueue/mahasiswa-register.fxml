@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<ScrollPane fitToWidth="true" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.smartqueue.controller.MahasiswaRegisterController">
+    <VBox alignment="TOP_CENTER" spacing="15.0" styleClass="root">
+        <padding><Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/></padding>
+
+        <Label text="REGISTRASI AKUN KELOMPOK" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+        <Separator/>
+        <Label fx:id="lblStatus" style="-fx-font-weight: bold;" wrapText="true" textAlignment="CENTER"/>
+
+        <Label text="Pilih Slot Kelompok (ditentukan Asisten):" style="-fx-font-weight: bold;"/>
+        <ComboBox fx:id="comboSlot" promptText="Memuat slot..." maxWidth="Infinity"/>
+
+        <Label text="Password Akun:" style="-fx-font-weight: bold;"/>
+        <PasswordField fx:id="txtPassword" promptText="Masukkan Password (min. 6 karakter)"/>
+        <PasswordField fx:id="txtConfirmPassword" promptText="Konfirmasi Password"/>
+        <Separator/>
+
+        <Label text="Data Anggota Kelompok:" style="-fx-font-weight: bold;"/>
+        <Label text="(NIM akan divalidasi agar tidak duplikat antar kelompok)"/>
+
+        <ScrollPane fx:id="scrollPaneAnggota" fitToWidth="true" prefHeight="200" VBox.vgrow="ALWAYS">
+            <VBox fx:id="vboxAnggotaContainer" spacing="10">
+                <padding><Insets top="5.0" left="5.0" right="5.0" bottom="5.0"/></padding>
+            </VBox>
+        </ScrollPane>
+
+        <Button fx:id="btnTambahAnggota" text="[ + ] Tambah Anggota" onAction="#onTambahAnggota" styleClass="success" maxWidth="Infinity"/>
+        <Separator/>
+
+        <Button fx:id="btnDaftar" text="DAFTAR AKUN" onAction="#onDaftar" styleClass="primary, button-large" prefWidth="250"/>
+
+        <Button text="&lt; Kembali ke Login" onAction="#onKembali" styleClass="button-flat"/>
+
+    </VBox>
+</ScrollPane>

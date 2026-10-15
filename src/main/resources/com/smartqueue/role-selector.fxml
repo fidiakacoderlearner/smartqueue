@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" spacing="25.0" styleClass="root" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.smartqueue.controller.RoleSelectorController">
+    <padding>
+        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0"/>
+    </padding>
+    <Label text="SMARTQUEUE - PILIH AKSES" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    <Separator/>
+    <Label text="Akses sebagai:" style="-fx-font-size: 14px;"/>
+    <Button text="MAHASISWA" onAction="#onMahasiswaClick"
+            styleClass="primary, button-large" prefWidth="200"/>
+    <Button text="ASISTEN" onAction="#onAsistenClick"
+            styleClass="info, button-large" prefWidth="200"/>
+</VBox>

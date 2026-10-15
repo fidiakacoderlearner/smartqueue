@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" spacing="10.0" styleClass="root" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.smartqueue.controller.AdminKelolaMahasiswaController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT">
+        <Button text="&lt; Kembali ke Pengaturan" onAction="#onKembali" styleClass="button-flat"/>
+    </HBox>
+
+    <Label text="KELOLA SLOT KELOMPOK" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    <Label text="Buat slot untuk kelompok yang diizinkan mendaftar." wrapText="true"/>
+    <Separator/>
+
+    <Label fx:id="lblStatus" style="-fx-font-weight: bold;" wrapText="true"/>
+
+    <Label text="TAMBAH SLOT KELOMPOK BARU:" style="-fx-font-weight: bold;"/>
+    <HBox spacing="10">
+        <TextField fx:id="txtNamaKelompokBaru" promptText="Cth: Kelompok 1" HBox.hgrow="ALWAYS"/>
+        <Button text="BUAT SLOT" onAction="#onTambahSlot" styleClass="success"/>
+    </HBox>
+    <Separator/>
+
+    <Label text="DAFTAR SLOT TERDAFTAR:" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="slotTable" prefHeight="400" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colNamaKelompok" text="Nama Slot" prefWidth="120"/>
+            <TableColumn fx:id="colStatus" text="Status" prefWidth="100"/>
+            <TableColumn fx:id="colNIM" text="NIM Terdaftar" prefWidth="200"/>
+            <TableColumn fx:id="colNama" text="Nama Terdaftar" prefWidth="200"/>
+            <TableColumn fx:id="colAksi" text="Aksi" prefWidth="150"/>
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+    </TableView>
+
+</VBox>

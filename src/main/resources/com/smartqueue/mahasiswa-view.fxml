@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" spacing="15.0" styleClass="root" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.smartqueue.controller.MahasiswaController">
+    <padding><Insets bottom="30.0" left="30.0" right="30.0" top="30.0"/></padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label fx:id="lblSelamatDatang" text="Selamat datang, [Kelompok]" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="btnLogout" text="Logout" onAction="#onLogout" styleClass="danger"/>
+    </HBox>
+    <Label text="SMARTQUEUE - DASHBOARD MAHASISWA" alignment="CENTER"
+           style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1976D2;"/>
+    <Separator/>
+
+    <Button fx:id="btnAmbilAntrian" text="AMBIL ANTRIAN" onAction="#onAmbilAntrian" styleClass="button-large, primary"
+            prefWidth="250">
+        <VBox.margin><Insets top="10.0"/></VBox.margin>
+    </Button>
+    <Separator/>
+
+    <Label text="Nomor Antrian Anda:" style="-fx-font-size: 14px; -fx-font-weight: bold;"/>
+    <Label fx:id="lblNomorAntrian" text="---" style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #00796B;"/>
+
+    <Label fx:id="lblWaktuTunggu" text=""
+           style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #D32F2F;"/>
+
+    <Label fx:id="statusLabel" text="Status: Antrian dibuka! Silakan ambil antrian." style="-fx-font-style: italic;"/>
+    <Separator/>
+    <Label text="INFORMASI ASISTENSI HARI INI:" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+    <TextArea fx:id="txtInfoAsistensi" editable="false" prefHeight="80" wrapText="true"/>
+    <Separator/>
+    <Label text="ANTRIAN SAAT INI:" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+    <TextArea fx:id="txtDaftarAntrian" editable="false" prefHeight="150" wrapText="false" style="-fx-font-family: monospace;"/>
+
+    <VBox fx:id="vboxChat" spacing="10" minWidth="400" visible="false" managed="false">
+        <children>
+            <Separator/>
+            <Label text="CHAT DENGAN ASISTEN:" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+            <TextArea fx:id="txtChatArea" editable="false" prefHeight="150" wrapText="true" style="-fx-font-family: monospace;"/>
+            <HBox spacing="10">
+                <TextField fx:id="txtPesan" promptText="Ketik pesan..." HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnKirim" text="Kirim" onAction="#onKirimPesan" styleClass="info"/>
+            </HBox>
+        </children>
+    </VBox>
+
+</VBox>

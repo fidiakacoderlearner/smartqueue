@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" spacing="10.0" styleClass="root" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.smartqueue.controller.AsistenController">
+    <padding><Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/></padding>
+
+    <Label text="SMARTQUEUE - PANEL ASISTEN" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+    <Separator/>
+
+    <Label text="ANTRIAN MENUNGGU" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="antrianTable" VBox.vgrow="ALWAYS" prefHeight="200">
+        <columns>
+            <TableColumn fx:id="colNomor" text="No" prefWidth="50"/>
+            <TableColumn fx:id="colNama" text="Nama Kelompok" prefWidth="200"/>
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button fx:id="btnPanggilBerikutnya" text="PANGGIL BERIKUTNYA" onAction="#onPanggilBerikutnya" styleClass="primary, button-large"/>
+
+        <Button fx:id="btnRevisi" text="REVISI" onAction="#onRevisi" styleClass="warning"/>
+
+        <Button fx:id="btnSelesai" text="SELESAI" onAction="#onSelesai" styleClass="success"/>
+
+        <Button fx:id="btnLewati" text="LEWATI" onAction="#onLewati" styleClass="danger"/>
+
+        <Region HBox.hgrow="ALWAYS" />
+        <Button text="RESET ANTRIAN" onAction="#onResetAntrian" styleClass="danger"/>
+    </HBox>
+
+    <VBox spacing="5" style="-fx-background-color: #eee; -fx-padding: 10px;" minWidth="560">
+        <Label text="Sedang Dilayani:" style="-fx-font-weight: bold;"/>
+        <Label fx:id="lblSedangDilayani" text="Tidak ada antrian yang aktif." style="-fx-font-style: italic;"/>
+        <Label fx:id="lblStatus" text="Selamat datang, Asisten." style="-fx-text-fill: green;"/>
+    </VBox>
+
+    <VBox fx:id="vboxChat" spacing="10" minWidth="560" visible="false" managed="false">
+        <children>
+            <Separator/>
+            <Label text="CHAT DENGAN MAHASISWA:" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+            <TextArea fx:id="txtChatArea" editable="false" prefHeight="150" wrapText="true" style="-fx-font-family: monospace;"/>
+            <HBox spacing="10">
+                <TextField fx:id="txtPesan" promptText="Ketik balasan..." HBox.hgrow="ALWAYS"/>
+                <Button fx:id="btnKirim" text="Kirim" onAction="#onKirimPesan" styleClass="info"/>
+            </HBox>
+        </children>
+    </VBox>
+    <ToggleButton fx:id="btnBukaTutupAntrian" onAction="#onToggleQueue" text="MEMUAT STATUS..."
+                  styleClass="danger" maxWidth="Infinity" prefHeight="40"/>
+
+    <Separator/>
+
+    <Label text="REKAPITULASI SESI SELESAI" style="-fx-font-weight: bold;"/>
+    <TableView fx:id="historyTable" prefHeight="150">
+        <columns>
+            <TableColumn fx:id="hisColNo" text="No" prefWidth="60"/>
+            <TableColumn fx:id="hisColNama" text="Kelompok" prefWidth="150"/>
+            <TableColumn fx:id="hisColStatus" text="Status" prefWidth="90"/>
+            <TableColumn fx:id="hisColWaktuMasuk" text="Waktu Daftar" prefWidth="180"/>
+            <TableColumn fx:id="hisColWaktuSelesai" text="Waktu Selesai" prefWidth="180"/>
+        </columns>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+    </TableView>
+    <Separator/>
+
+    <Button text="PENGATURAN PROFILE (Info, Username, Password)"
+            onAction="#onBukaProfile" styleClass="info" maxWidth="Infinity"/>
+
+</VBox>
